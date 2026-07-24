@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ariful Islam Fahim — Textile Engineer</title>
+<meta name="description" content="Ariful Islam Fahim — Final-year Textile Engineering student specializing in Apparel Manufacturing. Portfolio, education, projects and contact.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --indigo:#1B2A4A;
+    --indigo-2:#233457;
+    --ecru:#F3EDE2;
+    --paper:#FBF8F1;
+    --ink:#1C1B18;
+    --thread:#C1443C;
+    --sage:#5F7A62;
+    --slate:#6B6A63;
+    --line: rgba(28,27,24,0.14);
+    --radius: 3px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ecru);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  h1,h2,h3{font-family:'Fraunces', serif;font-weight:600;letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--thread); outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky; top:0; z-index:100;
+    background:var(--indigo);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px; max-width:1080px; margin:0 auto;
+  }
+  .brand{
+    color:var(--paper); font-family:'Fraunces',serif; font-weight:600;
+    font-size:1.15rem; letter-spacing:0.01em; text-decoration:none;
+  }
+  .brand span{color:var(--thread);}
+  nav.links{display:flex; gap:26px; list-style:none;}
+  nav.links a{
+    color:rgba(251,248,241,0.82); text-decoration:none; font-size:0.92rem;
+    font-weight:500; letter-spacing:0.01em; padding:6px 2px; position:relative;
+  }
+  nav.links a::after{
+    content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px;
+    background:var(--thread); transform:scaleX(0); transform-origin:left;
+    transition:transform .2s ease;
+  }
+  nav.links a:hover::after, nav.links a:focus-visible::after{transform:scaleX(1);}
+  nav.links a:hover{color:var(--paper);}
+  .nav-toggle{display:none;background:none;border:0;color:var(--paper);font-size:1.6rem;cursor:pointer;}
+
+  @media (max-width:760px){
+    nav.links{
+      position:absolute; top:100%; left:0; right:0; background:var(--indigo);
+      flex-direction:column; gap:0; max-height:0; overflow:hidden; transition:max-height .25s ease;
+    }
+    nav.links.open{max-height:400px;}
+    nav.links li{border-top:1px solid rgba(255,255,255,0.08);}
+    nav.links a{display:block; padding:14px 28px;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- STITCH DIVIDER (signature element) ---------- */
+  .stitch{
+    height:14px; margin:0 auto; max-width:1080px;
+    background-image:repeating-linear-gradient(90deg, var(--thread) 0 10px, transparent 10px 20px);
+    background-position:center; background-repeat:repeat-x; background-size:20px 2px;
+    background-position-y:center;
+    opacity:0.55;
+  }
+  section{padding:86px 0;}
+  section .wrap > .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:0.78rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--thread); margin-bottom:10px; font-weight:500;
+  }
+  section h2{font-size:1.9rem; margin-bottom:34px;}
+
+  /* ---------- HERO / SPEC TAG ---------- */
+  .hero{
+    background:var(--indigo); color:var(--paper); padding:70px 0 90px;
+    position:relative; overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.3fr 0.9fr; gap:56px; align-items:center;
+  }
+  @media (max-width:800px){ .hero-grid{grid-template-columns:1fr;} }
+
+  .hero-eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:0.8rem; letter-spacing:0.14em;
+    text-transform:uppercase; color:#E8B7AE; margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(2.3rem, 5vw, 3.4rem); line-height:1.05; margin-bottom:14px;}
+  .hero h1 em{font-style:normal; color:var(--thread);}
+  .hero p.role{font-size:1.15rem; color:rgba(251,248,241,0.82); max-width:520px; margin-bottom:32px;}
+
+  .cta-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:var(--radius);
+    font-weight:600; font-size:0.95rem; text-decoration:none; border:1.5px solid transparent; cursor:pointer;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn-primary{background:var(--thread); color:#fff;}
+  .btn-primary:hover{background:#a6382f; transform:translateY(-1px);}
+  .btn-ghost{border-color:rgba(251,248,241,0.4); color:var(--paper);}
+  .btn-ghost:hover{border-color:var(--paper); background:rgba(251,248,241,0.08);}
+
+  /* spec tag card */
+  .spec-tag{
+    background:var(--paper); color:var(--ink); border-radius:var(--radius);
+    padding:26px 26px 22px; position:relative;
+    box-shadow:0 18px 40px rgba(0,0,0,0.28);
+    transform:rotate(1.4deg);
+  }
+  .spec-tag::before{
+    content:""; position:absolute; top:-9px; left:26px; width:18px; height:18px;
+    background:var(--indigo); border-radius:50%; border:3px solid var(--paper);
+    box-shadow:0 4px 6px rgba(0,0,0,0.2);
+  }
+  .spec-tag .tag-title{
+    font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--slate); border-bottom:1px dashed var(--line);
+    padding-bottom:10px; margin-bottom:14px;
+  }
+  .spec-row{display:flex; justify-content:space-between; gap:10px; padding:7px 0; font-size:0.92rem;}
+  .spec-row + .spec-row{border-top:1px dashed var(--line);}
+  .spec-row .k{font-family:'IBM Plex Mono',monospace; font-size:0.74rem; color:var(--slate); text-transform:uppercase; letter-spacing:0.04em;}
+  .spec-row .v{font-weight:600; text-align:right;}
+  .pill{
+    display:inline-block; margin-top:14px; font-family:'IBM Plex Mono',monospace; font-size:0.72rem;
+    background:rgba(95,122,98,0.15); color:var(--sage); padding:5px 10px; border-radius:2px;
+    letter-spacing:0.04em;
+  }
+
+  .profile-photo{
+    width:104px; height:104px; border-radius:50%; object-fit:cover; margin-bottom:18px;
+    border:3px solid rgba(251,248,241,0.5);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  @media (max-width:760px){.about-grid{grid-template-columns:1fr;}}
+  .about-grid p{color:#3c3b36; margin-bottom:14px;}
+  .fact-list{list-style:none; display:flex; flex-direction:column; gap:14px;}
+  .fact-list li{display:flex; gap:12px; align-items:baseline; font-size:0.95rem;}
+  .fact-list .k{font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--thread); min-width:110px; text-transform:uppercase; letter-spacing:0.05em;}
+
+  /* ---------- CARDS (education / experience / projects) ---------- */
+  .card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px 28px; margin-bottom:18px;
+  }
+  .card-head{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:6px;}
+  .card-head h3{font-size:1.12rem;}
+  .card-head .when{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--thread); white-space:nowrap;}
+  .card .org{color:var(--slate); font-size:0.92rem; margin-bottom:12px; font-style:italic;}
+  .card ul{list-style:none; display:flex; flex-direction:column; gap:7px;}
+  .card ul li{position:relative; padding-left:16px; font-size:0.94rem; color:#3c3b36;}
+  .card ul li::before{content:"—"; position:absolute; left:0; color:var(--thread);}
+
+  /* timeline connector for experience */
+  .timeline{position:relative; padding-left:26px;}
+  .timeline::before{content:""; position:absolute; left:6px; top:6px; bottom:6px; width:1px; background:var(--line);}
+  .timeline .card{position:relative;}
+  .timeline .card::before{
+    content:""; position:absolute; left:-26px; top:32px; width:11px; height:11px; border-radius:50%;
+    background:var(--thread); border:2px solid var(--ecru);
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skill-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media (max-width:800px){.skill-grid{grid-template-columns:1fr;}}
+  .skill-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:24px;}
+  .skill-card h3{font-size:1rem; margin-bottom:14px; display:flex; align-items:center; gap:8px;}
+  .swatch{width:10px; height:10px; border-radius:2px; background:var(--thread); display:inline-block;}
+  .tag-cloud{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:0.76rem; background:var(--ecru);
+    border:1px solid var(--line); padding:5px 10px; border-radius:2px; color:#3c3b36;
+  }
+
+  /* ---------- CREDENTIALS ROW ---------- */
+  .cred-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;}
+  @media (max-width:800px){.cred-grid{grid-template-columns:1fr;}}
+  .cred-box h3{font-size:0.95rem; margin-bottom:12px; font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:0.06em; color:var(--slate); font-weight:500;}
+  .cred-box ul{list-style:none; display:flex; flex-direction:column; gap:10px; font-size:0.9rem; color:#3c3b36;}
+  .cred-box li{padding-left:14px; position:relative;}
+  .cred-box li::before{content:"·"; position:absolute; left:0; color:var(--thread); font-weight:700;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-section{background:var(--indigo); color:var(--paper);}
+  .contact-section .eyebrow{color:#E8B7AE;}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  @media (max-width:800px){.contact-grid{grid-template-columns:1fr;}}
+
+  .contact-info-list{list-style:none; display:flex; flex-direction:column; gap:18px; margin-bottom:28px;}
+  .contact-info-list li{display:flex; gap:14px; align-items:center;}
+  .icon-circle{
+    width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:rgba(251,248,241,0.1); flex-shrink:0; transition:background .15s ease;
+  }
+  .contact-info-list a{text-decoration:none; color:var(--paper); font-size:0.95rem;}
+  .icon-circle svg{width:17px;height:17px;stroke:var(--paper);}
+  .contact-info-list li:hover .icon-circle{background:var(--thread);}
+
+  .map-frame{border-radius:var(--radius); overflow:hidden; border:1px solid rgba(251,248,241,0.2); margin-top:8px;}
+  .map-frame iframe{width:100%; height:220px; border:0; display:block; filter:grayscale(0.15) contrast(1.05);}
+
+  form.contact-form{display:flex; flex-direction:column; gap:16px;}
+  form.contact-form label{font-family:'IBM Plex Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em; color:rgba(251,248,241,0.7); margin-bottom:6px; display:block;}
+  form.contact-form input, form.contact-form textarea{
+    width:100%; background:rgba(251,248,241,0.06); border:1px solid rgba(251,248,241,0.25);
+    border-radius:var(--radius); padding:12px 14px; color:var(--paper); font-family:'Inter',sans-serif; font-size:0.95rem;
+  }
+  form.contact-form input::placeholder, form.contact-form textarea::placeholder{color:rgba(251,248,241,0.4);}
+  form.contact-form textarea{resize:vertical; min-height:110px;}
+  .form-note{font-size:0.82rem; color:rgba(251,248,241,0.6); margin-top:-4px;}
+  .form-status{font-size:0.88rem; color:#E8B7AE; min-height:1.2em;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--indigo-2); color:rgba(251,248,241,0.7); padding:26px 0;}
+  .footer-inner{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:0.85rem;}
+  footer a{color:rgba(251,248,241,0.85); text-decoration:none;}
+  footer a:hover{color:var(--thread);}
+
+  ::selection{background:var(--thread); color:#fff;}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">A. Islam <span>Fahim</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <ul class="links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-eyebrow">Textile Engineering &middot; Apparel Manufacturing</div>
+      <h1>Ariful Islam <em>Fahim</em></h1>
+      <p class="role">Final-year Textile Engineering student focused on production, quality control and wet processing — turning fabric specs into finished, defect-free garments.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="assets/Ariful_Islam_Fahim_Resume.pdf" download>Download CV</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="spec-tag">
+      <img src="assets/profile.jpg" alt="Ariful Islam Fahim" class="profile-photo">
+      <div class="tag-title">Spec Sheet</div>
+      <div class="spec-row"><span class="k">Composition</span><span class="v">B.Sc. Textile Engineering</span></div>
+      <div class="spec-row"><span class="k">Grade</span><span class="v">CGPA 3.90 / 4.00</span></div>
+      <div class="spec-row"><span class="k">Origin</span><span class="v">Dhaka, Bangladesh</span></div>
+      <div class="spec-row"><span class="k">Care</span><span class="v">Open to feedback &amp; mentorship</span></div>
+      <span class="pill">● Open to internship / trainee roles</span>
+    </div>
+  </div>
+</section>
+<div class="stitch"></div>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h2>Where academic knowledge meets the factory floor</h2>
+    <div class="about-grid">
+      <div>
+        <p>I'm a final-year Textile Engineering student at Green University of Bangladesh, specializing in Apparel Manufacturing, with a CGPA of 3.90/4.00 and four Vice Chancellor's Awards for academic excellence.</p>
+        <p>I'm currently interning at Fariha Knit Tex Ltd. (a unit of Asrotex Group), where I'm getting hands-on exposure to end-to-end knit apparel production — production monitoring, quality control workflows, and factory-floor logistics — alongside earlier factory visits in dyeing and composite knitting.</p>
+        <p>I'm drawn to how data, sustainability and process discipline can make textile production cleaner and more efficient, and I'm looking for internship, trainee or research opportunities in apparel manufacturing, production operations, or quality assurance.</p>
+      </div>
+      <ul class="fact-list">
+        <li><span class="k">Location</span><span>Narayanganj / Dhaka, Bangladesh</span></li>
+        <li><span class="k">Currently</span><span>Textile Engineering Intern, Fariha Knit Tex Ltd.</span></li>
+        <li><span class="k">Studying</span><span>B.Sc. Textile Sciences and Engineering, Green University of Bangladesh</span></li>
+        <li><span class="k">Languages</span><span>Bengali (Native), English (Professional working proficiency)</span></li>
+        <li><span class="k">Looking for</span><span>Internships in apparel manufacturing, QA, or production</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="stitch"></div>
+
+<!-- ================= EDUCATION ================= -->
+<section id="education">
+  <div class="wrap">
+    <div class="eyebrow">Education</div>
+    <h2>Academic record</h2>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>B.Sc. in Textile Sciences and Engineering</h3>
+        <span class="when">10/2022 – 07/2026 (Expected)</span>
+      </div>
+      <div class="org">Green University of Bangladesh · Dhaka, Bangladesh</div>
+      <ul>
+        <li>Major: Apparel Manufacturing</li>
+        <li>CGPA: 3.90 / 4.00</li>
+        <li>Vice Chancellor's Award (x4, 2023–2025) and Dean's Award (x1, 2025)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>Higher Secondary Certificate (HSC), Science</h3>
+        <span class="when">2019 – 2021</span>
+      </div>
+      <div class="org">Dr. Mahbubur Rahman Mollah College · Dhaka, Bangladesh</div>
+      <ul><li>Grade: 4.92 / 5.00</li></ul>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>Secondary School Certificate (SSC), Science</h3>
+        <span class="when">2017 – 2019</span>
+      </div>
+      <div class="org">Hazi Ayet Ali Bhuiyan High School · Rupganj, Narayanganj</div>
+      <ul><li>Grade: 4.67 / 5.00</li></ul>
+    </div>
+  </div>
+</section>
+<div class="stitch"></div>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Experience &amp; Industrial Exposure</div>
+    <h2>On the factory floor</h2>
+
+    <div class="timeline">
+      <div class="card">
+        <div class="card-head">
+          <h3>Textile Engineering Intern</h3>
+          <span class="when">Jul 2026 – Present</span>
+        </div>
+        <div class="org">Fariha Knit Tex Ltd. (Asrotex Group) · Narayanganj</div>
+        <ul>
+          <li>Gaining hands-on exposure to end-to-end knit apparel production processes</li>
+          <li>Assisting in production monitoring and quality control workflows against industry standards</li>
+          <li>Building a deeper understanding of knitted fabric manufacturing, machinery operation and factory-floor logistics</li>
+          <li>Applying academic textile engineering knowledge to real industrial challenges</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3>Short-Term Factory Exposure — Dyeing Operations</h3>
+          <span class="when">2026</span>
+        </div>
+        <div class="org">Sikder Apparel Hosiery Ltd. · Dhaka</div>
+        <ul>
+          <li>Observed daily dyeing floor operations, material movement and workflow coordination in a knit manufacturing environment</li>
+          <li>Gained practical exposure to industrial safety practices and factory-floor operating conditions</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3>Industrial Visit — Composite Knit Manufacturing</h3>
+          <span class="when">2025</span>
+        </div>
+        <div class="org">GMS Composite Knitting Ind. Ltd. · Kashimpur, Gazipur</div>
+        <ul>
+          <li>Observed workflows across knitting, dyeing and finishing departments</li>
+          <li>Learned quality control checkpoints for single jersey, double jersey, interlock and jacquard production</li>
+          <li>Gained exposure to production sequencing, material flow and factory discipline practices</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="stitch"></div>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">Academic Projects</div>
+    <h2>Lab work &amp; research</h2>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>pH-Sensitive Smart Textile Using Natural Dye</h3>
+        <span class="when">2025</span>
+      </div>
+      <div class="org">Coursework Lab Project — Wet Processing II Lab</div>
+      <ul>
+        <li>Developed a cotton-based chromatic fabric using anthocyanin extract from roselle with reversible pH-sensitive colour response</li>
+        <li>Applied mordant concentration and thermal processing optimization to improve wash-fastness performance</li>
+        <li>Conducted colour-response testing across acidic, neutral and alkaline environments</li>
+        <li>Prepared full experimental documentation: methodology, observations and analysis</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>Sustainable Fashion Awareness Survey</h3>
+        <span class="when">2025</span>
+      </div>
+      <div class="org">Group Research Activity</div>
+      <ul>
+        <li>Collaborated on a student survey examining sustainable fashion awareness and consumer behaviour trends</li>
+        <li>Collected and organized 130+ survey responses for analysis and reporting</li>
+        <li>Contributed to report preparation and presentation of findings</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="stitch"></div>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Skills</div>
+    <h2>What I work with</h2>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <h3><span class="swatch"></span>Textile Testing &amp; QC</h3>
+        <div class="tag-cloud">
+          <span class="tag">GSM testing</span>
+          <span class="tag">Tensile &amp; elongation</span>
+          <span class="tag">Fiber identification</span>
+          <span class="tag">Fabric evaluation</span>
+          <span class="tag">Defect identification</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3><span class="swatch"></span>Production &amp; Apparel Ops</h3>
+        <div class="tag-cloud">
+          <span class="tag">Apparel manufacturing</span>
+          <span class="tag">QC procedures</span>
+          <span class="tag">Workflow observation</span>
+          <span class="tag">AQL defect classification</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3><span class="swatch"></span>Software &amp; Digital</h3>
+        <div class="tag-cloud">
+          <span class="tag">MS Excel / Word / PowerPoint</span>
+          <span class="tag">AutoCAD (2D)</span>
+          <span class="tag">ArahWeave (basic)</span>
+          <span class="tag">Canva</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-card" style="margin-top:22px;">
+      <h3><span class="swatch"></span>Working style</h3>
+      <div class="tag-cloud">
+        <span class="tag">Written communication</span>
+        <span class="tag">Critical thinking</span>
+        <span class="tag">Workplace etiquette</span>
+        <span class="tag">Cross-team coordination</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="stitch"></div>
+
+<!-- ================= CREDENTIALS: leadership / certs / activities ================= -->
+<section id="credentials">
+  <div class="wrap">
+    <div class="eyebrow">Beyond the Classroom</div>
+    <h2>Leadership, certificates &amp; activity</h2>
+    <div class="cred-grid">
+      <div class="cred-box">
+        <h3>Leadership</h3>
+        <ul>
+          <li><strong>Class Representative</strong>, Green University of Bangladesh (2022 – Present) — coordinating communication between faculty and a 35+ student cohort</li>
+        </ul>
+      </div>
+      <div class="cred-box">
+        <h3>Certificates</h3>
+        <ul>
+          <li>Employability Skills Program — Wadhwani Foundation (2026)</li>
+          <li>Computer Applications Certification — ICA Bangladesh (2021)</li>
+        </ul>
+      </div>
+      <div class="cred-box">
+        <h3>Seminars &amp; Exhibitions</h3>
+        <ul>
+          <li>Smart Resume for Fresh Graduates — Wadhwani Foundation (2026)</li>
+          <li>All-Over Printing Design and Development seminar (2022)</li>
+          <li>Textech International Exhibition, ICCB Dhaka (2022–2025)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="stitch"></div>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact-section">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2 style="color:var(--paper);">Let's talk</h2>
+    <div class="contact-grid">
+      <div>
+        <ul class="contact-info-list">
+          <li>
+            <span class="icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg>
+            </span>
+            <a href="mailto:arifulislamfahim04@gmail.com">arifulislamfahim04@gmail.com</a>
+          </li>
+          <li>
+            <span class="icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.68 2.86a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.22-1.27a2 2 0 0 1 2.11-.45c.92.32 1.88.55 2.86.68A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <a href="tel:+8801968718018">+880 1968-718018</a>
+          </li>
+          <li>
+            <span class="icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </span>
+            <a href="https://www.linkedin.com/in/ariful-islam-fahim/" target="_blank" rel="noopener">linkedin.com/in/ariful-islam-fahim</a>
+          </li>
+        </ul>
+
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?q=Dhaka,Bangladesh&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Location map — Dhaka, Bangladesh"></iframe>
+        </div>
+      </div>
+
+      <div>
+        <form class="contact-form" id="contactForm">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="What would you like to talk about?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send message</button>
+          <p class="form-note">This opens your email app with the message pre-filled, addressed to Ariful. Nothing is stored or sent through this website itself.</p>
+          <p class="form-status" id="formStatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>&copy; <span id="year"></span> Ariful Islam Fahim. All rights reserved.</span>
+    <span>Designed &amp; built by <a href="https://www.linkedin.com/in/ariful-islam-fahim/" target="_blank" rel="noopener">Ariful Islam Fahim</a></span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // contact form -> mailto fallback (no backend required)
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const subject = encodeURIComponent('Portfolio contact from ' + name);
+    const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+    window.location.href = 'mailto:arifulislamfahim04@gmail.com?subject=' + subject + '&body=' + body;
+    status.textContent = 'Opening your email app…';
+  });
+</script>
+
+</body>
+</html>
